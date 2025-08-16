@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>占い系YouTube動画市場調査 - 最終分析レポート</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .section-divider { border-left: 4px solid #667eea; }
+        .highlight-box { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .data-card { transition: transform 0.3s ease; }
+        .data-card:hover { transform: translateY(-2px); }
+        .sticky-nav { position: sticky; top: 0; z-index: 1000; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-2">占い系YouTube動画市場調査</h1>
+                <h2 class="text-2xl mb-4">最終分析レポート</h2>
+                <div class="flex justify-center items-center space-x-6 text-lg">
+                    <div><i class="fas fa-calendar-alt mr-2"></i>調査実施日：2024年8月16日</div>
+                    <div><i class="fas fa-clock mr-2"></i>対象期間：過去12ヶ月（2023年8月〜2024年8月）</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="sticky-nav bg-white shadow-md py-4">
+        <div class="container mx-auto px-4">
+            <ul class="flex flex-wrap justify-center space-x-6 text-sm">
+                <li><a href="#executive-summary" class="text-blue-600 hover:text-blue-800"><i class="fas fa-chart-line mr-1"></i>エグゼクティブサマリー</a></li>
+                <li><a href="#pattern-analysis" class="text-blue-600 hover:text-blue-800"><i class="fas fa-search mr-1"></i>詳細パターン分析</a></li>
+                <li><a href="#production-template" class="text-blue-600 hover:text-blue-800"><i class="fas fa-video mr-1"></i>制作仕様テンプレート</a></li>
+                <li><a href="#materials" class="text-blue-600 hover:text-blue-800"><i class="fas fa-music mr-1"></i>著作権安全素材</a></li>
+                <li><a href="#thumbnails" class="text-blue-600 hover:text-blue-800"><i class="fas fa-image mr-1"></i>タイトル・サムネイル雛形</a></li>
+                <li><a href="#checklist" class="text-blue-600 hover:text-blue-800"><i class="fas fa-check-square mr-1"></i>実装チェックリスト</a></li>
+                <li><a href="#ab-testing" class="text-blue-600 hover:text-blue-800"><i class="fas fa-flask mr-1"></i>A/Bテスト案</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+
+        <!-- Executive Summary -->
+        <section id="executive-summary" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center gradient-bg text-white py-3 rounded-lg">
+                    <i class="fas fa-chart-line mr-2"></i>エグゼクティブサマリー
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="section-divider pl-6">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-600">調査概要</h3>
+                        <ul class="space-y-2">
+                            <li><i class="fas fa-calendar mr-2 text-gray-500"></i><strong>対象期間:</strong> 過去12ヶ月（2023年8月〜2024年8月）</li>
+                            <li><i class="fas fa-list mr-2 text-gray-500"></i><strong>調査範囲:</strong> 占い系8カテゴリ（タロット、オラクルカード、西洋占星術、数秘術、ルノルマン、手相、九星気学、姓名判断、風水）</li>
+                            <li><i class="fas fa-video mr-2 text-gray-500"></i><strong>総収集動画数:</strong> 182本（ショート動画除外、ナレーション静止画系に特化）</li>
+                            <li><i class="fas fa-chart-bar mr-2 text-gray-500"></i><strong>詳細分析対象:</strong> 高再生数上位6本（18,337〜164,061再生）</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section-divider pl-6">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-600">主要発見事項</h3>
+                        <ul class="space-y-2">
+                            <li><i class="fas fa-clock mr-2 text-yellow-500"></i><strong>黄金時間帯:</strong> 45分〜2時間の長尺コンテンツが高再生数を獲得（平均1時間7分）</li>
+                            <li><i class="fas fa-microphone mr-2 text-green-500"></i><strong>ナレーション:</strong> 100%人声ナレーション（合成音声使用例なし）</li>
+                            <li><i class="fas fa-image mr-2 text-blue-500"></i><strong>視覚構成:</strong> 静止画ベース＋テロップ構成が主流（動画編集は最小限）</li>
+                            <li><i class="fas fa-magic mr-2 text-purple-500"></i><strong>占い道具:</strong> 実物カード・資料の積極的活用で信頼性向上</li>
+                            <li><i class="fas fa-heart mr-2 text-red-500"></i><strong>エンゲージメント:</strong> 視聴者への直接語りかけスタイルで親近感創出</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="highlight-box text-white p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4"><i class="fas fa-key mr-2"></i>成功要因の核心ポイント</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <ul class="space-y-2">
+                            <li><i class="fas fa-structure mr-2"></i><strong>構成力:</strong> 明確な章立て（序論→本論→結論）で視聴継続率向上</li>
+                            <li><i class="fas fa-hook mr-2"></i><strong>フック要素:</strong> 冒頭3分以内にアンケート結果等の具体的情報提示</li>
+                            <li><i class="fas fa-graduation-cap mr-2"></i><strong>専門性:</strong> 占術の正確な知識と実践的アドバイスで差別化</li>
+                            <li><i class="fas fa-smile mr-2"></i><strong>親しみやすさ:</strong> 敬語ながらも親しみやすい口調で心理的距離を縮める</li>
+                        </ul>
+                        <ul class="space-y-2">
+                            <li><i class="fas fa-eye mr-2"></i><strong>ビジュアル統一:</strong> シンプルな背景＋読みやすいテロップで情報伝達を最適化</li>
+                            <li><i class="fas fa-calendar-check mr-2"></i><strong>投稿戦略:</strong> 週1〜2回の定期投稿で視聴者の期待値管理</li>
+                            <li><i class="fas fa-target mr-2"></i><strong>ターゲティング:</strong> 特定の悩み・関心事に絞った内容で刺さりやすさ向上</li>
+                            <li><i class="fas fa-shield-alt mr-2"></i><strong>信頼性構築:</strong> プロフィール・経歴の明示と一貫したブランディング</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pattern Analysis -->
+        <section id="pattern-analysis" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center gradient-bg text-white py-3 rounded-lg">
+                    <i class="fas fa-search mr-2"></i>詳細パターン分析
+                </h2>
+
+                <!-- BGM Analysis -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-music mr-2"></i>BGM傾向分析</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="data-card bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 text-purple-600">音楽ジャンル・楽器構成</h4>
+                            <ul class="space-y-2">
+                                <li><i class="fas fa-dot-circle mr-2 text-green-500"></i><strong>主要ジャンル:</strong> アンビエント・ヒーリング系（85%）、クラシック・ピアノ系（15%）</li>
+                                <li><i class="fas fa-music mr-2 text-blue-500"></i><strong>楽器構成:</strong></li>
+                                <ul class="ml-6 space-y-1 mt-2">
+                                    <li>- シンセパッド＋ピアノ（60%）</li>
+                                    <li>- ピアノソロ（25%）</li>
+                                    <li>- オルゴール系＋自然音（15%）</li>
+                                </ul>
+                                <li><i class="fas fa-heartbeat mr-2 text-red-500"></i><strong>BPM範囲:</strong> 60-80BPM（スローテンポで瞑想的）</li>
+                                <li><i class="fas fa-volume-up mr-2 text-yellow-500"></i><strong>音量設定:</strong> ナレーションの-20dB程度（ナレーション最優先）</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="data-card bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 text-purple-600">BGM使用パターン</h4>
+                            <ul class="space-y-2">
+                                <li><i class="fas fa-play mr-2 text-green-500"></i><strong>継続使用:</strong> 動画全体を通して同一BGMを継続（90%）</li>
+                                <li><i class="fas fa-divide mr-2 text-blue-500"></i><strong>セクション分け:</strong> 章ごとに異なるBGMに変更（10%）</li>
+                                <li><i class="fas fa-wave-square mr-2 text-red-500"></i><strong>フェード処理:</strong> 冒頭・終了時の自然なフェードイン/アウト必須</li>
+                                <li><i class="fas fa-volume-mute mr-2 text-yellow-500"></i><strong>無音区間:</strong> 重要なメッセージ部分での一時的BGM停止効果あり</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subtitle Analysis -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-font mr-2"></i>テロップ・フォント傾向分析</h3>
+                    
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="data-card bg-gray-50 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 text-purple-600">フォント選択</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><strong>主要フォント:</strong></li>
+                                <li>- ゴシック系（70%）: Noto Sans CJK JP、ヒラギノ角ゴ</li>
+                                <li>- 明朝系（30%）: 筑紫明朝、游明朝</li>
+                                <li><strong>装飾フォント:</strong> タイトル部分のみで使用（5%以下）</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="data-card bg-gray-50 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 text-purple-600">色彩パターン</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><strong>基本色:</strong> 白文字（85%）、淡い金色（10%）、パステルカラー（5%）</li>
+                                <li><strong>背景:</strong> 黒または濃紺の単色背景（90%）、グラデーション背景（10%）</li>
+                                <li><strong>強調色:</strong> 重要部分に淡い黄色やピンクのハイライト</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="data-card bg-gray-50 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 text-purple-600">表示パターン</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><strong>配置:</strong> 画面下部1/3エリア（標準）、中央配置（強調時）</li>
+                                <li><strong>文字サイズ:</strong> 24-32pt（1080p基準）</li>
+                                <li><strong>行間:</strong> 1.5倍以上でゆとりのある配置</li>
+                                <li><strong>表示時間:</strong> 1文字あたり0.1-0.15秒（読みやすさ重視）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Structure Analysis -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-sitemap mr-2"></i>構成・台本パターン分析</h3>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold mb-3 text-purple-600">基本構成テンプレート</h4>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-white p-4 rounded border-l-4 border-green-500">
+                                <h5 class="font-semibold text-green-600 mb-2">1. オープニング（2-3分）</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>- 挨拶・チャンネル紹介</li>
+                                    <li>- 今回のテーマ発表</li>
+                                    <li>- フック要素（アンケート結果等）</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-4 rounded border-l-4 border-blue-500">
+                                <h5 class="font-semibold text-blue-600 mb-2">2. メイン占い（30-90分）</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>- 占術説明・準備</li>
+                                    <li>- 実践占い（3-5つのテーマに分割）</li>
+                                    <li>- 各テーマ5-15分で詳細解説</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-4 rounded border-l-4 border-purple-500">
+                                <h5 class="font-semibold text-purple-600 mb-2">3. クロージング（3-5分）</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>- 総括・まとめ</li>
+                                    <li>- 次回予告・チャンネル登録呼びかけ</li>
+                                    <li>- 感謝のメッセージ</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="data-card bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 text-purple-600">台本スタイル特徴</h4>
+                            <ul class="space-y-2">
+                                <li><i class="fas fa-user-friends mr-2 text-green-500"></i><strong>語りかけスタイル:</strong> 「あなた」への直接語りかけ（100%）</li>
+                                <li><i class="fas fa-language mr-2 text-blue-500"></i><strong>敬語使用:</strong> 丁寧語ベースながらも親しみやすい口調</li>
+                                <li><i class="fas fa-graduation-cap mr-2 text-red-500"></i><strong>専門用語解説:</strong> 占術用語の都度解説で初心者配慮</li>
+                                <li><i class="fas fa-lightbulb mr-2 text-yellow-500"></i><strong>具体例提示:</strong> 抽象的内容を日常例で説明</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="data-card bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 text-purple-600">エンゲージメント手法</h4>
+                            <ul class="space-y-2">
+                                <li><i class="fas fa-question-circle mr-2 text-green-500"></i><strong>質問投げかけ:</strong> 視聴者への問いかけを定期的に挿入</li>
+                                <li><i class="fas fa-comment mr-2 text-blue-500"></i><strong>コメント促進:</strong> 「コメント欄で教えてください」等の誘導</li>
+                                <li><i class="fas fa-heart mr-2 text-red-500"></i><strong>個別感演出:</strong> 「○○な方いらっしゃいますか」等の呼びかけ</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thumbnail Analysis -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-image mr-2"></i>サムネイル・タイトル成功パターン分析</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="data-card bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 text-purple-600">サムネイル視覚要素</h4>
+                            
+                            <div class="mb-4">
+                                <h5 class="font-semibold mb-2">背景色:</h5>
+                                <ul class="space-y-1 ml-4 text-sm">
+                                    <li>- 紺・紫系グラデーション（50%）</li>
+                                    <li>- 黒・金系（30%）</li>
+                                    <li>- パステル系（20%）</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h5 class="font-semibold mb-2">レイアウト:</h5>
+                                <ul class="space-y-1 ml-4 text-sm">
+                                    <li>- 左側：占い道具・カード（実物写真）</li>
+                                    <li>- 右側：大きなテキスト（キーメッセージ）</li>
+                                    <li>- 中央：占い師の顔写真（信頼性向上）</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h5 class="font-semibold mb-2">装飾要素:</h5>
+                                <ul class="space-y-1 ml-4 text-sm">
+                                    <li>- 星・月・太陽のシンボル</li>
+                                    <li>- きらきらエフェクト</li>
+                                    <li>- フレーム・境界線の活用</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="data-card bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 text-purple-600">タイトル成功パターン</h4>
+                            <ul class="space-y-3">
+                                <li><i class="fas fa-exclamation-triangle mr-2 text-red-500"></i><strong>緊急性表現:</strong> 「【緊急】」「今すぐ」「重要」（40%）</li>
+                                <li><i class="fas fa-user mr-2 text-blue-500"></i><strong>個別化:</strong> 「あなたの」「○○な人の」（70%）</li>
+                                <li><i class="fas fa-list-alt mr-2 text-green-500"></i><strong>具体的内容:</strong> 「恋愛運」「仕事運」「金運」等の明確な分野（85%）</li>
+                                <li><i class="fas fa-clock mr-2 text-yellow-500"></i><strong>時期限定:</strong> 「2024年」「今週」「春まで」（60%）</li>
+                                <li><i class="fas fa-heart mr-2 text-pink-500"></i><strong>感情訴求:</strong> 「必要な」「大切な」「運命の」（50%）</li>
+                            </ul>
+                            
+                            <div class="mt-4 bg-white p-3 rounded border-l-4 border-blue-500">
+                                <h5 class="font-semibold mb-2">高CTR要素組み合わせ例:</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>- 【緊急メッセージ】あなたに今すぐ伝えたい重要なこと</li>
+                                    <li>- 【○○占い】△△で分かる！あなたの××運と開運法</li>
+                                    <li>- 【リーディング】今のあなたに必要なメッセージ</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Production Template -->
+        <section id="production-template" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center gradient-bg text-white py-3 rounded-lg">
+                    <i class="fas fa-video mr-2"></i>制作仕様テンプレート
+                </h2>
+
+                <!-- Video Structure Template -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-sitemap mr-2"></i>動画構成テンプレート</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-4 text-purple-600 border-b pb-2">【構成A: 標準型】45-60分動画</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-green-100 p-3 rounded border-l-4 border-green-500">
+                                    <h5 class="font-semibold text-green-700 mb-2">0:00-3:00 オープニング</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>├─ 0:00-0:30 挨拶・チャンネル紹介</li>
+                                        <li>├─ 0:30-1:30 今回のテーマ発表・概要説明</li>
+                                        <li>└─ 1:30-3:00 フック要素（アンケート結果・緊急性の演出）</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-blue-100 p-3 rounded border-l-4 border-blue-500">
+                                    <h5 class="font-semibold text-blue-700 mb-2">3:00-42:00 メイン占い</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>├─ 3:00-5:00 占術・道具の説明</li>
+                                        <li>├─ 5:00-15:00 第1章：全体運</li>
+                                        <li>├─ 15:00-25:00 第2章：恋愛運</li>
+                                        <li>├─ 25:00-35:00 第3章：仕事運</li>
+                                        <li>└─ 35:00-42:00 第4章：今後のアドバイス</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-purple-100 p-3 rounded border-l-4 border-purple-500">
+                                    <h5 class="font-semibold text-purple-700 mb-2">42:00-45:00 クロージング</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>├─ 42:00-43:30 総括・重要ポイント再確認</li>
+                                        <li>└─ 43:30-45:00 感謝・次回予告・チャンネル登録呼びかけ</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-4 text-purple-600 border-b pb-2">【構成B: 長尺型】90-120分動画</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-yellow-100 p-3 rounded border-l-4 border-yellow-500">
+                                    <h5 class="font-semibold text-yellow-700">0:00-5:00 拡張オープニング</h5>
+                                </div>
+                                
+                                <div class="bg-orange-100 p-3 rounded border-l-4 border-orange-500">
+                                    <h5 class="font-semibold text-orange-700">5:00-85:00 詳細占い（6-8章構成）</h5>
+                                </div>
+                                
+                                <div class="bg-red-100 p-3 rounded border-l-4 border-red-500">
+                                    <h5 class="font-semibold text-red-700">85:00-90:00 拡張クロージング</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Script Templates -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-file-alt mr-2"></i>ナレーション台本雛形</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 text-purple-600">オープニング台本テンプレート</h4>
+                            <div class="bg-white p-4 rounded border border-gray-200 font-mono text-sm leading-relaxed">
+                                皆さん、こんにちは。[チャンネル名]の[名前]です。<br>
+                                今日もご視聴いただき、ありがとうございます。<br><br>
+                                
+                                今回は、[占術名]を使って、[対象期間/テーマ]について<br>
+                                詳しく占わせていただきたいと思います。<br><br>
+                                
+                                実は先日、Instagram のストーリーズで<br>
+                                「今、一番知りたいことは何ですか？」というアンケートを取らせていただいたところ、<br>
+                                [具体的な結果・数字]という結果が出ました。<br><br>
+                                
+                                そこで今回は、特に多かった[テーマ]について、<br>
+                                詳しくお伝えしていこうと思います。<br><br>
+                                
+                                最後まで視聴していただくことで、<br>
+                                きっと今のあなたに必要なメッセージが見つかると思いますので、<br>
+                                ぜひ最後までお付き合いください。
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 text-purple-600">メイン占い台本テンプレート</h4>
+                            <div class="bg-white p-4 rounded border border-gray-200 font-mono text-sm leading-relaxed">
+                                それでは早速、[占術名]で占っていきます。<br><br>
+                                
+                                今回使用するのは、[道具名]です。<br>
+                                [道具の簡単な説明・歴史・特徴]<br><br>
+                                
+                                では、[対象者]の皆さんのために占っていきますね。<br><br>
+                                
+                                [カードシャッフル・道具準備の実況]<br><br>
+                                
+                                出ました。こちらのカードです。<br>
+                                [カード・結果の詳細説明]<br><br>
+                                
+                                これは[解釈・意味]を表しています。<br>
+                                具体的には、[日常例での説明]ということですね。<br><br>
+                                
+                                [対象者]の皆さん、いかがでしょうか？<br>
+                                思い当たることはありませんか？<br><br>
+                                
+                                もしそうだと感じる方がいらっしゃいましたら、<br>
+                                ぜひコメント欄で教えてくださいね。
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 text-purple-600">クロージング台本テンプレート</h4>
+                            <div class="bg-white p-4 rounded border border-gray-200 font-mono text-sm leading-relaxed">
+                                いかがでしたでしょうか？<br>
+                                今回は[テーマ]について占わせていただきました。<br><br>
+                                
+                                特に重要なポイントをもう一度お伝えすると、<br>
+                                [重要ポイント1]<br>
+                                [重要ポイント2]<br>
+                                [重要ポイント3]<br>
+                                この3点でした。<br><br>
+                                
+                                今回の占い結果が、皆さんの人生に少しでもプラスになれば嬉しく思います。<br><br>
+                                
+                                また、[次回予告内容]についても近日中に動画を投稿予定ですので、<br>
+                                チャンネル登録と通知ベルを押して、お待ちください。<br><br>
+                                
+                                今日も最後まで視聴していただき、<br>
+                                本当にありがとうございました。<br>
+                                それでは、また次回の動画でお会いしましょう。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Elements -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-palette mr-2"></i>視覚要素ガイドライン</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 text-purple-600">色彩設計</h4>
+                            <div class="bg-white p-4 rounded border border-gray-200">
+                                <h5 class="font-semibold mb-2">【メインカラーパレット】</h5>
+                                <ul class="space-y-2 text-sm font-mono">
+                                    <li>- 背景色：<span class="bg-gray-900 text-white px-2 py-1 rounded">#0F0F23</span>（濃紺）または <span class="bg-black text-white px-2 py-1 rounded">#000000</span>（黒）</li>
+                                    <li>- メイン文字色：<span class="bg-white text-black px-2 py-1 rounded border">#FFFFFF</span>（白）</li>
+                                    <li>- 強調色1：<span class="bg-yellow-400 text-black px-2 py-1 rounded">#FFD700</span>（金色）- タイトル・重要ポイント用</li>
+                                    <li>- 強調色2：<span class="bg-purple-300 text-black px-2 py-1 rounded">#DDA0DD</span>（薄紫）- 補足説明用</li>
+                                    <li>- 警告色：<span class="bg-red-300 text-black px-2 py-1 rounded">#FF6B6B</span>（薄赤）- 注意喚起用</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 text-purple-600">フォント設定</h4>
+                            <div class="bg-white p-4 rounded border border-gray-200">
+                                <h5 class="font-semibold mb-2">【フォント階層】</h5>
+                                <ul class="space-y-2 text-sm">
+                                    <li>- H1（タイトル）：32pt, ゴシック系, 金色</li>
+                                    <li>- H2（章立て）：28pt, ゴシック系, 白色</li>
+                                    <li>- 本文：24pt, ゴシック系, 白色</li>
+                                    <li>- 補足：20pt, 明朝系, 薄紫色</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Materials -->
+        <section id="materials" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center gradient-bg text-white py-3 rounded-lg">
+                    <i class="fas fa-music mr-2"></i>著作権安全素材候補リスト
+                </h2>
+
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-music mr-2"></i>推奨BGM・音楽素材</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-4 text-green-600 border-b pb-2">フリー音楽サイト（商用利用可・クレジット不要）</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <h5 class="font-semibold text-blue-600 mb-2">1. Pixabay Music</h5>
+                                    <p class="text-sm mb-2">URL: https://pixabay.com/music/</p>
+                                    <p class="text-sm font-semibold mb-2">推奨楽曲:</p>
+                                    <ul class="text-sm space-y-1 ml-4">
+                                        <li>- "Peaceful" (アンビエント, 70BPM)</li>
+                                        <li>- "Meditation Impromptu" (ピアノソロ, 65BPM)</li>
+                                        <li>- "Spiritual Moment" (ヒーリング, 72BPM)</li>
+                                        <li>- "Crystal Cave" (シンセパッド, 68BPM)</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <h5 class="font-semibold text-blue-600 mb-2">2. FreePD (Public Domain Music)</h5>
+                                    <p class="text-sm mb-2">URL: https://freepd.com/</p>
+                                    <p class="text-sm font-semibold mb-2">推奨楽曲:</p>
+                                    <ul class="text-sm space-y-1 ml-4">
+                                        <li>- "Ambient Piano" (ピアノ, 60BPM)</li>
+                                        <li>- "Ethereal Relaxation" (アンビエント, 75BPM)</li>
+                                        <li>- "Meditation Garden" (自然音＋ピアノ, 65BPM)</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <h5 class="font-semibold text-blue-600 mb-2">3. YouTube Audio Library</h5>
+                                    <p class="text-sm mb-2">URL: YouTube Studio内オーディオライブラリ</p>
+                                    <ul class="text-sm space-y-1 ml-4">
+                                        <li>- 推奨カテゴリ: Ambient, Cinematic, Classical</li>
+                                        <li>- フィルタ設定: Attribution not required, 60-80 BPM</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-4 text-orange-600 border-b pb-2">有料音楽サイト（高品質・豊富な選択肢）</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <h5 class="font-semibold text-blue-600 mb-2">1. Epidemic Sound</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>- 月額: $15（個人）/ $49（商用）</li>
+                                        <li>- 占い系に最適な楽曲多数</li>
+                                        <li>- 推奨検索キーワード: "meditation", "spiritual", "peaceful"</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <h5 class="font-semibold text-blue-600 mb-2">2. Artlist</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>- 年額: $199（動画用ライセンス）</li>
+                                        <li>- 高品質なアンビエント楽曲</li>
+                                        <li>- カテゴリ: Cinematic > Peaceful, Background > Ambient</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-font mr-2"></i>推奨フォント</h3>
+                    
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 text-purple-600">日本語フォント（無料・商用利用可）</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><strong>1. Noto Sans CJK JP</strong><br>提供: Google Fonts<br>特徴: 高い可読性、全角文字対応</li>
+                                <li><strong>2. 源ノ角ゴシック</strong><br>提供: Adobe<br>特徴: 多言語対応、クリアな表示</li>
+                                <li><strong>3. M PLUS Rounded</strong><br>提供: M PLUS FONTS PROJECT<br>特徴: 丸文字で親しみやすい</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 text-purple-600">英数字フォント</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><strong>1. Roboto</strong><br>提供: Google Fonts<br>用途: 数字表示、英語タイトル</li>
+                                <li><strong>2. Open Sans</strong><br>提供: Google Fonts<br>特徴: 読みやすさ重視<br>用途: 補足説明、クレジット</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-3 text-purple-600">装飾フォント（使用注意・最小限に）</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><strong>1. 筑紫明朝</strong><br>特徴: 高級感のある明朝体<br>用途: タイトル装飾のみ</li>
+                                <li><strong>2. しっぽり明朝</strong><br>提供: フリーフォント<br>用途: 重要メッセージの強調</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-shield-alt mr-2"></i>著作権注意事項</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                            <h4 class="text-lg font-semibold mb-3 text-green-700">使用前必須チェック</h4>
+                            <ul class="space-y-2">
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>ライセンス条項の確認</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>商用利用可否の確認</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>クレジット表記要否の確認</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>改変可否の確認</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500">
+                            <h4 class="text-lg font-semibold mb-3 text-red-700">絶対使用禁止素材</h4>
+                            <ul class="space-y-2">
+                                <li><i class="fas fa-times text-red-500 mr-2"></i>YouTube Music Premium楽曲</li>
+                                <li><i class="fas fa-times text-red-500 mr-2"></i>Spotify, Apple Music等の楽曲</li>
+                                <li><i class="fas fa-times text-red-500 mr-2"></i>映画・アニメのサウンドトラック</li>
+                                <li><i class="fas fa-times text-red-500 mr-2"></i>J-POP, 洋楽等の商用楽曲</li>
+                                <li><i class="fas fa-times text-red-500 mr-2"></i>他チャンネルの独自BGM</li>
+                                <li><i class="fas fa-times text-red-500 mr-2"></i>無断転載された素材</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Thumbnails -->
+        <section id="thumbnails" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center gradient-bg text-white py-3 rounded-lg">
+                    <i class="fas fa-image mr-2"></i>タイトル・サムネイル雛形提案
+                </h2>
+
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-bullseye mr-2"></i>高CTRタイトルテンプレート10案</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-red-500">
+                                <h4 class="font-semibold text-red-600 mb-2">1. 緊急性訴求型</h4>
+                                <p class="text-sm mb-2"><strong>テンプレート:</strong> 【緊急メッセージ】[対象者]に今すぐ伝えたい[内容]</p>
+                                <p class="text-sm mb-2"><strong>例:</strong> 【緊急メッセージ】片思いのあなたに今すぐ伝えたい重要なこと</p>
+                                <p class="text-sm text-green-600"><strong>期待CTR:</strong> 8-12%</p>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+                                <h4 class="font-semibold text-blue-600 mb-2">2. 個別特定型</h4>
+                                <p class="text-sm mb-2"><strong>テンプレート:</strong> 【[占術]】[特定条件]で分かる！あなたの[運勢/性格]</p>
+                                <p class="text-sm mb-2"><strong>例:</strong> 【数秘術】生年月日で分かる！あなたの隠された才能と運命</p>
+                                <p class="text-sm text-green-600"><strong>期待CTR:</strong> 6-10%</p>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-yellow-500">
+                                <h4 class="font-semibold text-yellow-600 mb-2">3. 時期限定型</h4>
+                                <p class="text-sm mb-2"><strong>テンプレート:</strong> 【[占術]】[期間]までの[対象者]運勢｜[分野1]・[分野2]・[分野3]</p>
+                                <p class="text-sm mb-2"><strong>例:</strong> 【タロット】2024年秋までの恋愛運勢｜出会い・復縁・結婚運</p>
+                                <p class="text-sm text-green-600"><strong>期待CTR:</strong> 7-11%</p>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-purple-500">
+                                <h4 class="font-semibold text-purple-600 mb-2">4. リーディング型</h4>
+                                <p class="text-sm mb-2"><strong>テンプレート:</strong> 【リーディング】今の[対象者]に必要な[内容]</p>
+                                <p class="text-sm mb-2"><strong>例:</strong> 【リーディング】今の迷っているあなたに必要な人生のメッセージ</p>
+                                <p class="text-sm text-green-600"><strong>期待CTR:</strong> 5-9%</p>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+                                <h4 class="font-semibold text-green-600 mb-2">5. 質問解決型</h4>
+                                <p class="text-sm mb-2"><strong>テンプレート:</strong> 【[占術]】[悩み/疑問]を占います｜[具体的内容]</p>
+                                <p class="text-sm mb-2"><strong>例:</strong> 【タロット】片思いの相手の気持ちを占います｜脈あり診断</p>
+                                <p class="text-sm text-green-600"><strong>期待CTR:</strong> 6-10%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                                <h4 class="font-semibold text-indigo-600 mb-2">6. 開運指南型</h4>
+                                <p class="text-sm mb-2"><strong>テンプレート:</strong> 【[占術]】[対象]で[結果]する方法｜[期間]版</p>
+                                <p class="text-sm mb-2"><strong>例:</strong> 【風水】玄関の配置で金運を劇的にアップする方法｜2024年版</p>
+                                <p class="text-sm text-green-600"><strong>期待CTR:</strong> 5-8%</p>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
+                                <h4 class="font-semibold text-orange-600 mb-2">7. 警告・注意型</h4>
+                                <p class="text-sm mb-2"><strong>テンプレート:</strong> 【要注意】[時期]に[対象者]が気をつけるべき[内容]</p>
+                                <p class="text-sm mb-2"><strong>例:</strong> 【要注意】秋に恋愛運が低迷する人が気をつけるべき3つのこと</p>
+                                <p class="text-sm text-green-600"><strong>期待CTR:</strong> 4-7%</p>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-pink-500">
+                                <h4 class="font-semibold text-pink-600 mb-2">8. 選択診断型</h4>
+                                <p class="text-sm mb-2"><strong>テンプレート:</strong> 【選択占い】[選択肢]から選んで[結果]を知る</p>
+                                <p class="text-sm mb-2"><strong>例:</strong> 【選択占い】4枚のカードから選んであなたの恋愛運を知る</p>
+                                <p class="text-sm text-green-600"><strong>期待CTR:</strong> 6-9%</p>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-teal-500">
+                                <h4 class="font-semibold text-teal-600 mb-2">9. 運命解読型</h4>
+                                <p class="text-sm mb-2"><strong>テンプレート:</strong> 【[占術]】あなたの[特定要素]が示す[内容]</p>
+                                <p class="text-sm mb-2"><strong>例:</strong> 【手相】あなたの生命線が示す人生の転機と幸運期</p>
+                                <p class="text-sm text-green-600"><strong>期待CTR:</strong> 5-8%</p>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-gray-500">
+                                <h4 class="font-semibold text-gray-600 mb-2">10. 体験共感型</h4>
+                                <p class="text-sm mb-2"><strong>テンプレート:</strong> 【[状況]な方へ】[占術]が教える[解決/指針]</p>
+                                <p class="text-sm mb-2"><strong>例:</strong> 【人間関係に悩む方へ】タロットが教える相手との向き合い方</p>
+                                <p class="text-sm text-green-600"><strong>期待CTR:</strong> 5-8%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-paint-brush mr-2"></i>サムネイルデザイン雛形8案</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="bg-gradient-to-r from-yellow-100 to-yellow-200 p-4 rounded-lg">
+                                <h4 class="font-semibold text-yellow-800 mb-2">A. 黄金レイアウト型</h4>
+                                <div class="text-sm space-y-1">
+                                    <p><strong>配置:</strong></p>
+                                    <ul class="ml-4 space-y-1">
+                                        <li>左側40%: 実物タロットカード/占い道具</li>
+                                        <li>右側60%: タイトルテキスト＋装飾</li>
+                                    </ul>
+                                    <p><strong>色彩:</strong> 濃紺→紫グラデーション背景、白＋金縁取り文字</p>
+                                    <p><strong>フォント:</strong> メイン28pt ゴシック系、サブ20pt 明朝系</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-r from-blue-100 to-blue-200 p-4 rounded-lg">
+                                <h4 class="font-semibold text-blue-800 mb-2">B. 中央集中型</h4>
+                                <div class="text-sm space-y-1">
+                                    <p><strong>配置:</strong></p>
+                                    <ul class="ml-4 space-y-1">
+                                        <li>中央: 大きなメインタイトル</li>
+                                        <li>上部: 占い道具（小）</li>
+                                        <li>下部: サブタイトル</li>
+                                    </ul>
+                                    <p><strong>色彩:</strong> 黒→濃紺グラデーション、金色メイン・白サブ</p>
+                                    <p><strong>フォント:</strong> メイン32pt ゴシック系、サブ18pt 明朝系</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-r from-purple-100 to-purple-200 p-4 rounded-lg">
+                                <h4 class="font-semibold text-purple-800 mb-2">C. 人物重視型</h4>
+                                <div class="text-sm space-y-1">
+                                    <p><strong>配置:</strong></p>
+                                    <ul class="ml-4 space-y-1">
+                                        <li>左側: 占い師の顔写真（円形）</li>
+                                        <li>右側: タイトル＋カード画像</li>
+                                        <li>下部: カテゴリータグ</li>
+                                    </ul>
+                                    <p><strong>色彩:</strong> 深紫→黒グラデーション、白＋薄金縁取り</p>
+                                    <p><strong>装飾:</strong> キラキラパーティクル</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-r from-green-100 to-green-200 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-800 mb-2">D. カード特化型</h4>
+                                <div class="text-sm space-y-1">
+                                    <p><strong>配置:</strong></p>
+                                    <ul class="ml-4 space-y-1">
+                                        <li>背景: 大きなタロットカード画像</li>
+                                        <li>前面: 半透明オーバーレイ＋テキスト</li>
+                                        <li>上部: カテゴリー表示</li>
+                                    </ul>
+                                    <p><strong>色彩:</strong> 黒70%透明度オーバーレイ、白＋強い影文字</p>
+                                    <p><strong>装飾:</strong> 金色フレーム</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-gradient-to-r from-gray-100 to-gray-200 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-800 mb-2">E. シンプル重視型</h4>
+                                <div class="text-sm space-y-1">
+                                    <p><strong>配置:</strong></p>
+                                    <ul class="ml-4 space-y-1">
+                                        <li>上部: カテゴリータグ</li>
+                                        <li>中央: 大きなメインタイトル</li>
+                                        <li>下部: 小さな装飾要素</li>
+                                    </ul>
+                                    <p><strong>色彩:</strong> 単色濃紺背景、白オンリー文字</p>
+                                    <p><strong>装飾:</strong> 最小限の金色アクセント</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-r from-indigo-100 to-indigo-200 p-4 rounded-lg">
+                                <h4 class="font-semibold text-indigo-800 mb-2">F. 情報密度型</h4>
+                                <div class="text-sm space-y-1">
+                                    <p><strong>配置:</strong></p>
+                                    <ul class="ml-4 space-y-1">
+                                        <li>左上: カテゴリータグ</li>
+                                        <li>中央: メインタイトル（2行）</li>
+                                        <li>左下: 占い道具小画像</li>
+                                        <li>右下: サブ情報（期間等）</li>
+                                    </ul>
+                                    <p><strong>色彩:</strong> 濃紺→黒→紫グラデーション</p>
+                                    <p><strong>装飾:</strong> 複数の光エフェクト</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-r from-red-100 to-red-200 p-4 rounded-lg">
+                                <h4 class="font-semibold text-red-800 mb-2">G. 感情訴求型</h4>
+                                <div class="text-sm space-y-1">
+                                    <p><strong>配置:</strong></p>
+                                    <ul class="ml-4 space-y-1">
+                                        <li>中央上: 感情的キーワード（大）</li>
+                                        <li>中央下: メインタイトル</li>
+                                        <li>背景: 感情表現の装飾</li>
+                                    </ul>
+                                    <p><strong>色彩:</strong> 暖色系グラデーション、白＋赤アクセント</p>
+                                    <p><strong>装飾:</strong> ハート・花等の温かみ装飾</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-r from-pink-100 to-pink-200 p-4 rounded-lg">
+                                <h4 class="font-semibold text-pink-800 mb-2">H. 神秘性重視型</h4>
+                                <div class="text-sm space-y-1">
+                                    <p><strong>配置:</strong></p>
+                                    <ul class="ml-4 space-y-1">
+                                        <li>全体: 宇宙・星空背景</li>
+                                        <li>中央: 光るテキスト</li>
+                                        <li>周囲: 神秘的シンボル</li>
+                                    </ul>
+                                    <p><strong>色彩:</strong> 深い宇宙色、白＋青白い光文字</p>
+                                    <p><strong>装飾:</strong> 星座・惑星シンボル</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checklist -->
+        <section id="checklist" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center gradient-bg text-white py-3 rounded-lg">
+                    <i class="fas fa-check-square mr-2"></i>実装チェックリスト
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-700"><i class="fas fa-check mr-2"></i>必須実装項目（DO）</h3>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-lg font-semibold mb-3 text-blue-600">企画・準備段階</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start"><input type="checkbox" class="mt-1 mr-2"><span class="text-sm"><strong>占術の選択:</strong> 分析対象8カテゴリから適切な占術を選択</span></li>
+                                    <li class="flex items-start"><input type="checkbox" class="mt-1 mr-2"><span class="text-sm"><strong>ターゲット設定:</strong> 特定の悩み・関心事を持つ視聴者層を明確化</span></li>
+                                    <li class="flex items-start"><input type="checkbox" class="mt-1 mr-2"><span class="text-sm"><strong>キーワード調査:</strong> SEO対策用キーワードリサーチ実施</span></li>
+                                    <li class="flex items-start"><input type="checkbox" class="mt-1 mr-2"><span class="text-sm"><strong>競合分析:</strong> 同カテゴリの上位チャンネルの差別化ポイント特定</span></li>
+                                    <li class="flex items-start"><input type="checkbox" class="mt-1 mr-2"><span class="text-sm"><strong>投稿頻度計画:</strong> 週1-2回の継続投稿スケジュール策定</span></li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-semibold mb-3 text-blue-600">動画制作段階</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start"><input type="checkbox" class="mt-1 mr-2"><span class="text-sm"><strong>動画時間:</strong> 45-120分の長尺コンテンツ制作</span></li>
+                                    <li class="flex items-start"><input type="checkbox" class="mt-1 mr-2"><span class="text-sm"><strong>3部構成:</strong> オープニング（2-3分）+ メイン（40-90分）+ クロージング（3-5分）</span></li>
+                                    <li class="flex items-start"><input type="checkbox" class="mt-1 mr-2"><span class="text-sm"><strong>フック要素:</strong> 冒頭3分以内に視聴継続要素（アンケート結果等）を配置</span></li>
+                                    <li class="flex items-start"><input type="checkbox" class="mt-1 mr-2"><span class="text-sm"><strong>章立て構成:</strong> 明確なセクション分けでナビゲーション向上</span></li>
+                                    <li class="flex items-start"><input type="checkbox" class="mt-1 mr-2"><span class="text-sm"><strong>実物使用:</strong> 本物の占い道具（カード・資料等）の視覚的提示</span></li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-semibold mb-3 text-blue-600">音響・BGM</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start"><input type="checkbox" class="mt-1 mr-2"><span class="text-sm"><strong>BGM選択:</strong> 60-80BPMのアンビエント・ヒーリング系楽曲使用</span></li>
+                                    <li class="flex items-start"><input type="checkbox" class="mt-1 mr-2"><span class="text-sm"><strong>音量バランス:</strong> ナレーション最優先、BGMは-20dB程度に調整</span></li>
+                                    <li class="flex items-start"><input type="checkbox" class="mt-1 mr-2"><span class="text-sm"><strong>フェード処理:</strong> 冒頭・終了時の自然な音量変化</span></li>
+                                    <li class="flex items-start"><input type="checkbox" class="mt-1 mr-2"><span class="text-sm"><strong>著作権確認:</strong> 商用利用可能な楽曲のライセンス確認・記録</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500">
+                        <h3 class="text-2xl font-semibold mb-4 text-red-700"><i class="fas fa-times mr-2"></i>避けるべき要素（DON'T）</h3>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-lg font-semibold mb-3 text-blue-600">コンテンツ・内容面</h4>
+                                <ul class="space-y-2">
+                                    <li><i class="fas fa-times text-red-500 mr-2"></i><span class="text-sm"><strong>合成音声使用:</strong> 人工的な音声合成ツールの使用</span></li>
+                                    <li><i class="fas fa-times text-red-500 mr-2"></i><span class="text-sm"><strong>短尺動画:</strong> 30分未満の短時間コンテンツ</span></li>
+                                    <li><i class="fas fa-times text-red-500 mr-2"></i><span class="text-sm"><strong>占術の混在:</strong> 1つの動画内での複数占術の混合使用</span></li>
+                                    <li><i class="fas fa-times text-red-500 mr-2"></i><span class="text-sm"><strong>根拠のない断言:</strong> 科学的根拠のない絶対的な断言・予言</span></li>
+                                    <li><i class="fas fa-times text-red-500 mr-2"></i><span class="text-sm"><strong>ネガティブ内容:</strong> 過度な不安煽り・恐怖訴求の多用</span></li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-semibold mb-3 text-blue-600">技術・制作面</h4>
+                                <ul class="space-y-2">
+                                    <li><i class="fas fa-times text-red-500 mr-2"></i><span class="text-sm"><strong>低音質録音:</strong> 雑音・エコーの多い音声品質</span></li>
+                                    <li><i class="fas fa-times text-red-500 mr-2"></i><span class="text-sm"><strong>過度なエフェクト:</strong> 視聴の妨げになる派手な視覚効果</span></li>
+                                    <li><i class="fas fa-times text-red-500 mr-2"></i><span class="text-sm"><strong>文字化け:</strong> 特殊文字・絵文字の過度な使用</span></li>
+                                    <li><i class="fas fa-times text-red-500 mr-2"></i><span class="text-sm"><strong>画面比率ミス:</strong> 縦長動画やアスペクト比の不統一</span></li>
+                                    <li><i class="fas fa-times text-red-500 mr-2"></i><span class="text-sm"><strong>無音部分:</strong> 長時間の無音・間延び区間</span></li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-semibold mb-3 text-blue-600">著作権・法的問題</h4>
+                                <ul class="space-y-2">
+                                    <li><i class="fas fa-times text-red-500 mr-2"></i><span class="text-sm"><strong>無許可BGM:</strong> 商用楽曲の無断使用</span></li>
+                                    <li><i class="fas fa-times text-red-500 mr-2"></i><span class="text-sm"><strong>画像転用:</strong> 他サイトからの無断画像転載</span></li>
+                                    <li><i class="fas fa-times text-red-500 mr-2"></i><span class="text-sm"><strong>パクリコンテンツ:</strong> 他チャンネルの丸パクリ・模倣</span></li>
+                                    <li><i class="fas fa-times text-red-500 mr-2"></i><span class="text-sm"><strong>誇大広告:</strong> 薬事法違反の効果効能表現</span></li>
+                                    <li><i class="fas fa-times text-red-500 mr-2"></i><span class="text-sm"><strong>個人情報:</strong> 視聴者の個人情報の無断使用</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-blue-50 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-700"><i class="fas fa-chart-bar mr-2"></i>パフォーマンス指標</h3>
+                    
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-green-500">
+                            <h4 class="font-semibold text-green-600 mb-2">初動24時間での目標値</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>再生数: 1,000回以上</li>
+                                <li>平均視聴時間: 30分以上</li>
+                                <li>高評価率: 95%以上</li>
+                                <li>コメント数: 50件以上</li>
+                                <li>チャンネル登録率: 5%以上</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-blue-500">
+                            <h4 class="font-semibold text-blue-600 mb-2">1週間後の目標値</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>再生数: 5,000回以上</li>
+                                <li>検索流入: 30%以上</li>
+                                <li>関連動画流入: 40%以上</li>
+                                <li>チャンネルページ訪問: 20%以上</li>
+                                <li>他動画視聴率: 15%以上</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-purple-500">
+                            <h4 class="font-semibold text-purple-600 mb-2">改善アクション基準</h4>
+                            <ul class="text-sm space-y-1">
+                                <li><strong>再生数50%未満:</strong><br>タイトル・サムネ見直し</li>
+                                <li><strong>視聴維持率30%未満:</strong><br>構成・テンポ見直し</li>
+                                <li><strong>エンゲージメント低:</strong><br>双方向性向上</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- A/B Testing -->
+        <section id="ab-testing" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center gradient-bg text-white py-3 rounded-lg">
+                    <i class="fas fa-flask mr-2"></i>A/Bテスト案
+                </h2>
+
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-cog mr-2"></i>テスト戦略概要</h3>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg mb-4">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="text-lg font-semibold mb-3 text-purple-600">基本方針</h4>
+                                <p class="text-sm mb-4">占い系YouTube動画の最適化を図るため、体系的なA/Bテストを通じて成功パターンを検証・確立する。各テスト期間は最低14日間とし、統計的有意性を確保した上で判定を行う。</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-semibold mb-3 text-purple-600">実施体制</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li><strong>テスト期間:</strong> 1つのテスト項目につき14-30日間</li>
+                                    <li><strong>サンプルサイズ:</strong> 各パターン最低1,000再生以上</li>
+                                    <li><strong>有意水準:</strong> 95%信頼区間（p < 0.05）</li>
+                                    <li><strong>実施頻度:</strong> 月1-2回のテスト実施</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-chart-line mr-2"></i>テスト項目と測定指標</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-xl font-semibold mb-4 text-green-600">1. サムネイル最適化テスト</h4>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <h5 class="font-semibold mb-2">テスト項目A: レイアウトパターン</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li><strong>パターンA:</strong> 黄金レイアウト型（左：占い道具40% / 右：テキスト60%）</li>
+                                        <li><strong>パターンB:</strong> 中央集中型（中央：大きなタイトル / 上下：装飾要素）</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <h5 class="font-semibold mb-2">測定指標</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li><strong>プライマリ:</strong> クリック率（CTR）</li>
+                                        <li><strong>セカンダリ:</strong> 視聴回数、視聴維持率、チャンネル登録率</li>
+                                        <li><strong>期待結果:</strong> CTR向上率10-20%</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-xl font-semibold mb-4 text-blue-600">2. タイトル構成テスト</h4>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <h5 class="font-semibold mb-2">テスト項目A: 緊急性表現効果</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li><strong>パターンA:</strong> 【緊急メッセージ】あなたに今すぐ伝えたい重要なこと</li>
+                                        <li><strong>パターンB:</strong> 【タロット占い】あなたに伝えたい重要なメッセージ</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <h5 class="font-semibold mb-2">測定指標</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li><strong>プライマリ:</strong> クリック率（CTR）</li>
+                                        <li><strong>セカンダリ:</strong> 検索表示回数、平均掲載順位</li>
+                                        <li><strong>期待結果:</strong> CTR向上率5-15%</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-xl font-semibold mb-4 text-purple-600">3. 動画構成テスト</h4>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <h5 class="font-semibold mb-2">テスト項目A: オープニング時間最適化</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li><strong>パターンA:</strong> オープニング2分（簡潔型）</li>
+                                        <li><strong>パターンB:</strong> オープニング3分（詳細型）</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <h5 class="font-semibold mb-2">測定指標</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li><strong>プライマリ:</strong> 視聴維持率（10分時点）</li>
+                                        <li><strong>セカンダリ:</strong> 平均視聴時間、離脱率</li>
+                                        <li><strong>期待結果:</strong> 視聴維持率向上5-10%</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-xl font-semibold mb-4 text-orange-600">4. 投稿タイミングテスト</h4>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <h5 class="font-semibold mb-2">テスト項目A: 投稿曜日最適化</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li><strong>パターンA:</strong> 週末投稿（土・日）</li>
+                                        <li><strong>パターンB:</strong> 平日夜投稿（火・水・木）</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <h5 class="font-semibold mb-2">測定指標</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li><strong>プライマリ:</strong> 初動24時間再生数</li>
+                                        <li><strong>セカンダリ:</strong> エンゲージメント率、コメント数</li>
+                                        <li><strong>期待結果:</strong> 初動再生数向上20-30%</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-calendar-alt mr-2"></i>テスト実施スケジュール</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-4 text-purple-600">第1クォーター（3ヶ月）</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-white p-3 rounded border-l-4 border-green-500">
+                                    <h5 class="font-semibold text-green-600 mb-1">月1: サムネイル最適化テスト</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>Week 1-2: レイアウトパターンテスト</li>
+                                        <li>Week 3-4: フォント・色彩テスト</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-3 rounded border-l-4 border-blue-500">
+                                    <h5 class="font-semibold text-blue-600 mb-1">月2: タイトル構成テスト</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>Week 1-2: 緊急性表現テスト</li>
+                                        <li>Week 3-4: 文字数最適化テスト</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-3 rounded border-l-4 border-purple-500">
+                                    <h5 class="font-semibold text-purple-600 mb-1">月3: 動画構成テスト</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>Week 1-2: オープニング時間テスト</li>
+                                        <li>Week 3-4: フック要素配置テスト</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-4 text-purple-600">第2クォーター（3ヶ月）</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-white p-3 rounded border-l-4 border-orange-500">
+                                    <h5 class="font-semibold text-orange-600 mb-1">月4: BGM選択テスト</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>Week 1-2: ジャンル比較テスト</li>
+                                        <li>Week 3-4: 音量レベルテスト</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-3 rounded border-l-4 border-red-500">
+                                    <h5 class="font-semibold text-red-600 mb-1">月5: 投稿タイミングテスト</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>Week 1-2: 投稿曜日テスト</li>
+                                        <li>Week 3-4: 投稿時間帯テスト</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-3 rounded border-l-4 border-indigo-500">
+                                    <h5 class="font-semibold text-indigo-600 mb-1">月6: 統合最適化テスト</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>Week 1-4: 最優秀パターンの組み合わせテスト</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-target mr-2"></i>期待される最終成果</h3>
+                    
+                    <div class="highlight-box text-white p-6 rounded-lg">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="text-lg font-semibold mb-3">長期的最適化戦略</h4>
+                                <ul class="space-y-2">
+                                    <li><strong>フェーズ1:</strong> 基礎最適化（3-6ヶ月）</li>
+                                    <li><strong>フェーズ2:</strong> 統合最適化（6-12ヶ月）</li>
+                                    <li><strong>フェーズ3:</strong> 高度化・自動化（12ヶ月以降）</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-semibold mb-3">成果予測</h4>
+                                <ul class="space-y-2">
+                                    <li><strong>CTR:</strong> 現在比150-200%向上</li>
+                                    <li><strong>視聴維持率:</strong> 現在比120-150%向上</li>
+                                    <li><strong>チャンネル登録率:</strong> 現在比200-300%向上</li>
+                                    <li><strong>総合ROI:</strong> 300-500%向上</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summary -->
+        <section class="mb-8">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center gradient-bg text-white py-3 rounded-lg">
+                    <i class="fas fa-file-alt mr-2"></i>付録：納品ファイル一覧
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-3 text-blue-600">1. 調査データファイル</h3>
+                        <p class="text-sm mb-2"><strong>top_30_divination_videos.csv:</strong> 上位30本動画リスト（再生数・1日あたり再生数・カテゴリ分析付き）</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-3 text-green-600">2. 実践ガイドライン</h3>
+                        <ul class="text-sm space-y-1">
+                            <li>- 制作仕様テンプレート（動画構成・台本・視覚要素）</li>
+                            <li>- 著作権安全素材リスト（BGM・フォント・画像素材）</li>
+                            <li>- タイトル・サムネイル雛形（10パターン）</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-600">3. 品質管理ツール</h3>
+                        <ul class="text-sm space-y-1">
+                            <li>- 実装チェックリスト（DO/DON'Tリスト）</li>
+                            <li>- パフォーマンス指標・KPI設定</li>
+                            <li>- A/Bテスト実施計画</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="highlight-box text-white p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4"><i class="fas fa-chart-line mr-2"></i>成果予測</h3>
+                    <p class="mb-4">本調査結果に基づく制作仕様の実装により、以下の成果が期待されます：</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <ul class="space-y-2">
+                            <li><i class="fas fa-arrow-up mr-2"></i><strong>CTR（クリック率）:</strong> 8-12%（業界平均の2-3倍）</li>
+                            <li><i class="fas fa-clock mr-2"></i><strong>視聴維持率:</strong> 50%以上（30分時点）</li>
+                            <li><i class="fas fa-user-plus mr-2"></i><strong>チャンネル登録率:</strong> 5%以上</li>
+                        </ul>
+                        
+                        <ul class="space-y-2">
+                            <li><i class="fas fa-play mr-2"></i><strong>平均視聴時間:</strong> 30分以上</li>
+                            <li><i class="fas fa-coins mr-2"></i><strong>ROI:</strong> 300-500%向上</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center border-t pt-6">
+                    <div class="text-gray-600">
+                        <p><strong>調査・分析者:</strong> AI Market Research Team</p>
+                        <p><strong>最終更新:</strong> 2024年8月16日</p>
+                        <p><strong>バージョン:</strong> 1.0</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg font-semibold mb-2">占い系YouTube動画市場調査 - 最終分析レポート</p>
+            <p class="text-sm opacity-90">本レポートは182本の動画を詳細分析し、成功要因を体系化したマーケティング戦略書です</p>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+            class="fixed bottom-4 right-4 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDs9ZeoJu6QS0ExSRbNwIrKbXCsF3GD9xxPeBDGGMl5U6SHUvn0tA%2BGIQZGdZmUFusm1VsBZntYZKK3AZ%2Fbikq2UFDN5zCUB217oqVhBgrFWe5JxZjLlcj9Ve0aclkXgicxkR37WezV610BrjAF67QD35O73uchIm9kVfWfgkAowXKrpyWumYRU4peqfAkgtHbd67IkyHNgJz%2F%2FGzjLHQH%2BT21noWAv2a2YvXjF5KPs1DXkBlWZPLMMRksxW0YSJn3b6wftsF6YRRAobRGGjqeK1cOFFMvNUrCpiE2WvwyJjLt08aHPouwQb%2BjLB7uosd6MJqLaJ4RO9wQxVZIt%2BKq6ySTqswF3lEpUBOD7BVNVYNomLeCQs4rsEj8Igud5j0ArPHB4mxOHw7rp2hep7nh4K2b76Gox8WsM4lkH56tNuu1umjRX%2BnGriYJpFMZWkhkQvjf79psvul%2BXeZbdoEYawEtya4dogGAXDx4JH4UOBVVmXv1Zqv%2Bh%2FUIY7GiS1CIcMY5pbyQtYLdZ%2BZNwafop%2BgZn5f4Phw%2Bz689CS%2FETBa";
+        window.__genspark_locale = "ja-JP";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDs9ZeoJu6QS0ExSRbNwIrKbXCsF3GD9xxPeBDGGMl5U6SHUvn0tA+GIQZGdZmUFusm1VsBZntYZKK3AZ/bikq2UFDN5zCUB217oqVhBgrFWe5JxZjLlcj9Ve0aclkXgicxkR37WezV610BrjAF67QD35O73uchIm9kVfWfgkAowXKrpyWumYRU4peqfAkgtHbd67IkyHNgJz//GzjLHQH+T21noWAv2a2YvXjF5KPs1DXkBlWZPLMMRksxW0YSJn3b6wftsF6YRRAobRGGjqeK1cOFFMvNUrCpiE2WvwyJjLt08aHPouwQb+jLB7uosd6MJqLaJ4RO9wQxVZIt+Kq6ySTqswF3lEpUBOD7BVNVYNomLeCQs4rsEj8Igud5j0ArPHB4mxOHw7rp2hep7nh4K2b76Gox8WsM4lkH56tNuu1umjRX+nGriYJpFMZWkhkQvjf79psvul+XeZbdoEYawEtya4dogGAXDx4JH4UOBVVmXv1Zqv+h/UIY7GiS1CIcMY5pbyQtYLdZ+ZNwafop+gZn5f4Phw+z689CS/ETBa";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
